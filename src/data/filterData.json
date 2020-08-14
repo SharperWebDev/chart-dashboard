@@ -1,0 +1,73 @@
+{
+    "Title": {
+        "icon" : "diploma"
+    },
+    "University": {
+        "icon": "university"
+    },
+    "Subject group" : {
+        "icon": "test-tube"
+    },
+    "Sector Interest": {
+        "icon" : "bulleted-list"
+    },
+    "Interactions": {
+        "icon" : "communication",
+        "sectors": {
+            "Accounting, Tax & Audit" : {
+                "checked" : false
+            },
+            "Charity & Social Enterprise" : {
+                "checked" : false
+            },
+            "Commercial Law" : {
+                "checked" : false
+            },
+            "Consulting" : {
+                "checked" : false
+            },
+            "Consumer, FMCG & Retails" : {
+                "checked" : false
+            },
+            "Education & Teaching" : {
+                "checked" : false
+            },
+            "Energy & Infrastructure" : {
+                "checked" : false
+            },
+            "Engineering" : {
+                "checked" : false
+            },
+            "Entrepreneurship &  Start Ups" : {
+                "checked" : false
+            },
+            "Financial Services" : {
+                "checked" : false
+            },
+            "Insurance & Risk Management" : {
+                "checked" : false
+            },
+            "Investment & Asset Management" : {
+                "checked" : false
+            },
+            "Investment Banking" : {
+                "checked" : false
+            },
+            "Pharmaceuticals" : {
+                "checked" : false
+            },
+            "Public Sector & Government" : {
+                "checked" : false
+            },
+            "Technology Consulting & Project" : {
+                "checked" : false
+            },
+            "Management" : {
+                "checked" : false
+            },
+            "Technology: IT & Software Development"  : {
+                "checked" : false
+            }          
+        }
+    }
+}

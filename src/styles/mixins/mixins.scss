@@ -1,0 +1,14 @@
+@import '../functions/functions.scss';
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: remCalc($size);
+  }
+  
+  @mixin transparent-gradient($direction, $color) {
+        background-image: linear-gradient(
+          to $direction, 
+          $color,
+          transparent
+      );
+  }
