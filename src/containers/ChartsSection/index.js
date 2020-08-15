@@ -15,57 +15,53 @@ render () {
     }
   };
 
-  const series = {"series" : [{"name": "bob", "colorByPoint": true, "data":[
-        Object.keys(schoolData.school_types).map(type => {const schoolTypes = {"name" : type, "y": schoolData.school_types[type]};
-        return(schoolTypes)})
-      ]}
-    ]};
-
-
-  console.log('constructed schooltypes', JSON.stringify(series));
-
-  const options ={
-    chart: {
-      type: "pie"
+  const series = [{colorByPoint: true, data:
+    Object.keys(schoolData.school_types).map(type => {
+      const typeString = `${type[0].toUpperCase()}${type.slice(1)} (${(schoolData.school_types[type]/schoolData.total*100).toFixed(1)}% - ${schoolData.school_types[type]})`,
+      schoolTypes = {name : typeString, "y": schoolData.school_types[type]};
+      return(schoolTypes)})
+    }],
+    options = {
+      chart: {
+        type: "pie",
+        style: {
+          fontfamily: 'Montserrat-Bold'
+        }
+      }, 
+      title: {
+        text: 'School Type'
+      },
+      credits: {
+        enabled: false
+      },
+      legend: {
+        enabled: false
+      },
+      plotOptions: {
+        pie: {
+            allowPointSelect: false,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: false,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+            },
+            showInLegend: true,
+        }
     },
-    series: [{
-      name: 'Brands',
-      colorByPoint: true,
-      data: [{
-        name: 'Chrome',
-        y: 61.41,
-        sliced: true,
-        selected: true
-      }, {
-        name: 'Internet Explorer',
-        y: 11.84
-      }, {
-        name: 'Firefox',
-        y: 10.85
-      }, {
-        name: 'Edge',
-        y: 4.67
-      }, {
-        name: 'Safari',
-        y: 4.18
-      }, {
-        name: 'Sogou Explorer',
-        y: 1.64
-      }, {
-        name: 'Opera',
-        y: 1.6
-      }, {
-        name: 'QQ',
-        y: 1.2
-      }, {
-        name: 'Other',
-        y: 2.61
-      }]
-    }]
-  };
- // school_types = [Object.assign(options.school_types)];
-
-  //console.log('school types', school_types );
+    legend: {
+        enabled: true,
+        floating: true,
+        layout: 'vertical',
+        align: 'left',
+        alignColumns: false,
+        verticalAlign: 'bottom',
+        adjustChartSize: true
+    },
+      series: series,
+      tooltip: {
+        enabled: false
+      }
+    };
 
     return (
       <>

@@ -122,7 +122,7 @@ $radius-measure: remCalc(4px);
 .graph-card {
 	box-sizing: border-box;
 	height: remCalc(526px);
-	width: auto;
+	width: remCalc(305px);
 	background: white;
 	position: relative;
 	border-radius: $radius-measure;
