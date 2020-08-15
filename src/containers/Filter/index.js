@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import filterData from '../../data/filterData.json';
 import FilterHeader from '../../components/FilterHeader';
 import FilterList from '../../components/FilterList';
 
@@ -7,7 +8,7 @@ class Filter extends Component {
     return (
       <aside className="filter-area">
         <FilterHeader/>
-        <FilterList /* pass filter data props here *//>
+        <FilterList filterData={filterData} />
       </ aside>
     )
   }
