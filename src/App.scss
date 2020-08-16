@@ -96,18 +96,24 @@
 	}
 	
 	.student-percentage {
-		height: 100%;
-		width: remCalc(75px);
-		background-image: url(./svgs/student.svg);
-		opacity: 0.5;
+		height: remCalc(55px);
+		width: remCalc(55px);
+		margin: remCalc(10px);
+		background-image: url(./svgs/student-grey.svg);
 		background-repeat: no-repeat;
-		background-position: center;
-
-		.fill {
-			width: remCalc(75px);
-			background-image: url(./svgs/student.svg);
-			background-repeat: no-repeat;
-		}
+		background-position: bottom;
+		background-size: 100%;
+		position: relative;
+	}
+	.fill {
+		width: remCalc(55px);
+		background-image: url(./svgs/student-black.svg);
+		background-repeat: no-repeat;
+		background-position: bottom;
+		background-size: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 0;
 	}
 
 }

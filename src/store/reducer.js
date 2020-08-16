@@ -1,7 +1,7 @@
-import chartData from '../data/chartData.json';
+import { all } from '../data/chartData.json';
 
 const initialState = {
-    chartData: chartData.all
+    chartData: all
 };
 
 
