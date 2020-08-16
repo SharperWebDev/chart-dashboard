@@ -1,19 +1,5 @@
 @import './styles/styles.scss';
 
-//colours
-$bg-grey: #F4F6F8;
-$quick-filter-shadow: lighten(#000000, 79);
-$expandable-area: #2A3747;
-
-//measures
-$container-whitespace-left: remCalc(50px);
-$container-whitespace-vertical: remCalc(30px);
-$filter-button-measure: remCalc(20px);
-$radius-measure: remCalc(4px);
-
-//text
-
-
 .container {
 	display: grid;
 	width: 100vw;
@@ -78,7 +64,7 @@ $radius-measure: remCalc(4px);
 			&-secondary {
 				padding: remCalc(10px);
 				margin-left: remCalc(10px);
-				border-left: remCalc(1px) solid #1FDCB2;
+				border-left: remCalc(1px) solid $bluegreen;
 			}
 		}
 	}
@@ -108,6 +94,22 @@ $radius-measure: remCalc(4px);
 		bottom: -1*($container-whitespace-vertical/2);
 		@include transparent-gradient(bottom, $quick-filter-shadow)
 	}
+	
+	.student-percentage {
+		height: 100%;
+		width: remCalc(75px);
+		background-image: url(./svgs/student.svg);
+		opacity: 0.5;
+		background-repeat: no-repeat;
+		background-position: center;
+
+		.fill {
+			width: remCalc(75px);
+			background-image: url(./svgs/student.svg);
+			background-repeat: no-repeat;
+		}
+	}
+
 }
 
 .graph-grid {
@@ -131,22 +133,63 @@ $radius-measure: remCalc(4px);
 }
 
 .filter-tab {
+  box-sizing: border-box;
 	position: absolute;
 	height: 50%;
 	width: 0;
 	bottom: 0;
 	left: 0;
 	background: $expandable-area;
-	border-bottom-right-radius: $radius-measure;
+  border-bottom-right-radius: $radius-measure;
+  transition: width 0.3s ease-out;
+  z-index: 100;
 	
-	&--extended {
-	 height: 50%;
+	&--open {
 	 width: 90%;
-	}
+  }
+  
+  &--closed {
+    width: 0;
+  }
+
+  &-filter {
+    box-sizing: border-box;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    top: 0;
+    left: 0;
+    color: white;
+    overflow: hidden;
+
+    .h2{
+      box-sizing: border-box;
+      padding: 10px;
+      font-family: 'Montserrat-Bold';
+    }
+
+    .filter-button{
+      box-sizing: border-box;
+      margin-top: remCalc(5px);
+      padding: remCalc(5px);
+      border: 1px solid white;
+      margin-top: 20px;
+      width: 50%;
+      align-self: center;
+
+      &--selected {
+        background: $green;
+      }
+
+      &:hover {
+        background-color: $bluegreen;
+      }
+    }
+  }
 	
-	&:before {
-		box-sizing: content-box;
-		content: '';
+	&-button{
 		position: absolute;
 		top: 0;
 		right: -1*$filter-button-measure;
