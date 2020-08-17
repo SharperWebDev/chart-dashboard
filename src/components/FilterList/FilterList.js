@@ -15,23 +15,26 @@ class FilterList extends Component {
             return (
               <li key={i.toString()} className="filter-list-item">
                 <div className="filter-list-item-primary">
-                  <div className="filter-list-item-primary-icon">icon</div>
+                  <div className={`filter-list-item-primary-icon filter-list-item-primary-icon-${filterData[name].icon}`}></div>
                   <p>{name}</p>
                   <div className="filter-list-item-primary-action-icon">V</div>
                 </div>
 
                 {filterData[name].sectors && 
-                  <ul className="filter-list-item-secondary">
-                    { Object.keys(filterData[name].sectors).map(sector => {
-                      return (
-                        <li key={`${name + sector}`}className="filter-sub-list-item">
-                          <input type="checkbox" id={sector} name={sector}/>
-                          <label htmlFor={sector}>{sector}</label>
-                        </li>
-                        )}
-                      )
-                    }
-                  </ul>
+                  <div className="secondary-container">
+                    <p className="secondary-title">Sectors</p>
+                    <ul className="filter-list-item-secondary">
+                      { Object.keys(filterData[name].sectors).map(sector => {
+                        return (
+                          <li key={`${name + sector}`}className="secondary-list-item">
+                            <input type="checkbox" id={sector} name={sector}/>
+                            <label className="secondary-label" htmlFor={sector}>{sector}</label>
+                          </li>
+                          )}
+                        )
+                      }
+                    </ul>
+                  </div>
                 }
               </li>
             )

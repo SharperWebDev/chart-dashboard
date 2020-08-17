@@ -4,12 +4,17 @@ import { all } from '../../data/chartData.json'
 
 class QuickFilter extends Component {
     render() {
-        const fillHeight = {"height":`${this.props.chartData.total/all.total*100}%`};
+        const currentTotal = this.props.chartData.total;
+        const fillHeight = {"height":`${currentTotal/all.total*100}%`};
 
         return (
             <aside className="quick-filter-bar">
                 <div className="student-percentage">
-                    <div className="fill" style={fillHeight}></div>
+                    <div className="student-percentage-fill" style={fillHeight}></div>
+                </div>
+                <div className="student-percentage-text">
+                    <p className="figure">{currentTotal}</p>
+                    <p className="label">members selected</p>
                 </div>
             </aside>
         )

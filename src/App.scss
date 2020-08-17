@@ -1,209 +1,264 @@
 @import './styles/styles.scss';
 
 .container {
-	display: grid;
-	width: 100vw;
-  height: 100vh;
-	grid-template-columns: 16.8% auto;
-  grid-template-rows: auto;
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 16.8% auto;
+    grid-template-rows: auto;
 }
 
 .filter-area {
-	background: $expandable-area;
-	position: relative;
-	display: grid;
-	grid-template-rows: remCalc(30px) auto;
-	padding: remCalc(21px) remCalc(16px);
-	color: white;
-	
-	.filter {
-		padding-top: remCalc(40px);
-		
-		&-header {
-			display: flex;
-			flex-flow: row nowrap;
-      align-items: center;
-      font-size: remCalc(12px);
-		
-		/*&-text {
-			color: white;
-		}	*/
-		
-	.logo {
-		height: 100%;
-		width: remCalc(30px);
-		background: gold;
-		margin-right: remCalc(30px);
-	 }
-	}
-	
-	&-list {
-		display: grid;
-		grid-auto-rows: auto;
-		grid-row-gap: remCalc(5px);
-		
-		&-item {
+    background: $expandable-area;
+    position: relative;
+    display: grid;
+    grid-template-rows: remCalc(30px) auto;
+    padding: remCalc(21px) remCalc(16px);
+    color: white;
 
+    .filter {
+        padding-top: remCalc(40px);
+
+        &-header {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+			font-size: remCalc(12px);
 			
-			&-primary {
-				display: flex;
-				flex-flow: row nowrap;
-				justify-content: flex-start;
-				padding: remCalc(5px);
-				height: auto;
+			&-text {
+				font-family: 'Montserrat-Medium';
+				font-size: remCalc(20px);
+			}
 
-				&-icon{
-					margin-right: remCalc(10px);
+            .logo {
+                height: 100%;
+                width: remCalc(30px);
+				background-image: url('./svgs/logo.svg');
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+                margin-right: remCalc(30px);
+            }
+        }
+
+        &-list {
+            display: grid;
+            grid-auto-rows: auto;
+            grid-row-gap: remCalc(5px);
+
+            &-item {
+                &-primary {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-start;
+                    padding: remCalc(5px);
+					height: auto;
+					font-family: 'Montserrat-Medium';
+					font-size: remCalc(14px);
+
+					$icons: ("bulleted-list", "communication", "diploma", "test-tube", "university");
+
+					@each $name in $icons {
+						&-icon-#{$name} {
+							background-image: url('./svgs/#{$name}.svg');
+						}
+					}
+
+                    &-icon {
+						margin-right: remCalc(10px);
+						width: remCalc(20px);
+						height: remCalc(20px);
+						background-repeat: no-repeat;
+						background-size: contain;
+						background-position: center;
+                    }
+
+                    &-action-icon {
+                        margin-left: auto
+                    }
+				}
+				
+				.secondary-container{
+					border-left: remCalc(1px) solid $bluegreen;
+					margin-left: remCalc(10px);
 				}
 
-				&-action-icon{
-					margin-left: auto
+				.secondary-title {
+					font-family: 'Montserrat-Regular';
+					font-size: remCalc(12px);
+					margin-top: remCalc(5px);
+					margin-left: remCalc(10px);
 				}
-			}
-			
-			&-secondary {
-				padding: remCalc(10px);
-				margin-left: remCalc(10px);
-				border-left: remCalc(1px) solid $bluegreen;
-			}
-		}
-	}
-	}
+
+				.secondary-label{
+					padding-left: remCalc(5px);
+				}
+
+				.secondary-list-item {
+					margin-bottom: remCalc(5px);
+				}
+
+                &-secondary {
+                    padding: remCalc(10px);
+					font-family: 'Montserrat-Regular';
+					font-size: remCalc(12px);
+                }
+            }
+        }
+    }
 }
 
 .main-content-area {
-	background: $bg-grey;
+    background: $bg-grey;
 }
 
 .quick-filter-bar {
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	height: remCalc(75px);
-	background: white;
-	padding-left: $container-whitespace-left;
-	position: relative;
-	
-	&:after {
-		content: '';
-		position: absolute;
-		height: $container-whitespace-vertical/2;
-		width: 100%;
-		left: 0;
-		bottom: -1*($container-whitespace-vertical/2);
-		@include transparent-gradient(bottom, $quick-filter-shadow)
-	}
-	
-	.student-percentage {
-		height: remCalc(55px);
-		width: remCalc(55px);
-		margin: remCalc(10px);
-		background-image: url(./svgs/student-grey.svg);
-		background-repeat: no-repeat;
-		background-position: bottom;
-		background-size: 100%;
-		position: relative;
-	}
-	.fill {
-		width: remCalc(55px);
-		background-image: url(./svgs/student-black.svg);
-		background-repeat: no-repeat;
-		background-position: bottom;
-		background-size: 100%;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-	}
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: remCalc(75px);
+    background: white;
+    padding-left: $container-whitespace-left;
+    position: relative;
 
+    &:after {
+        content: '';
+        position: absolute;
+        height: $container-whitespace-vertical/2;
+        width: 100%;
+        left: 0;
+        bottom: -1*($container-whitespace-vertical/2);
+        @include transparent-gradient(bottom, $quick-filter-shadow)
+    }
+
+    .student-percentage {
+        height: remCalc(55px);
+        width: remCalc(55px);
+        margin: remCalc(10px);
+        background-image: url(./svgs/student-grey.svg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100%;
+        position: relative;
+
+        &-fill {
+            width: remCalc(55px);
+            background-image: url(./svgs/student-black.svg);
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: 100%;
+            position: absolute;
+            left: 0;
+			bottom: 0;
+			transition: height 0.3s ease-out;
+
+        }
+
+        &-text {
+			font-family: 'Montserrat-Bold';
+
+			.figure {
+				font-size: remCalc(30px);				
+			}
+		
+			.label {
+				font-size: remCalc(14px);
+			}
+		}
+	}
 }
 
 .graph-grid {
-	display: grid;	
-	grid-template-columns: repeat(4, auto);
-	grid-template-rows: repeat(3, auto);
-	grid-row-gap: remCalc(30px);
-	grid-column-gap: remCalc(30px);
-	padding: $container-whitespace-vertical $container-whitespace-left;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(3, auto);
+    grid-row-gap: remCalc(30px);
+    grid-column-gap: remCalc(30px);
+    padding: $container-whitespace-vertical $container-whitespace-left;
 }
 
 .graph-card {
-	box-sizing: border-box;
-	height: remCalc(526px);
-	width: remCalc(305px);
-	background: white;
-	position: relative;
-	border-radius: $radius-measure;
-	box-shadow: 0 3px 9px #00000012;
-	padding: remCalc(20px);
+    box-sizing: border-box;
+    height: remCalc(526px);
+    width: remCalc(305px);
+    background: white;
+    position: relative;
+    border-radius: $radius-measure;
+    box-shadow: 0 3px 9px #00000012;
+    padding: remCalc(20px);
 }
 
 .filter-tab {
-  box-sizing: border-box;
-	position: absolute;
-	height: 50%;
-	width: 0;
-	bottom: 0;
-	left: 0;
-	background: $expandable-area;
-  border-bottom-right-radius: $radius-measure;
-  transition: width 0.3s ease-out;
-  z-index: 100;
-	
-	&--open {
-	 width: 90%;
-  }
-  
-  &--closed {
-    width: 0;
-  }
-
-  &-filter {
     box-sizing: border-box;
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-    top: 0;
+    height: 50%;
+    width: 0;
+    bottom: 0;
     left: 0;
-    color: white;
-    overflow: hidden;
+    background: $expandable-area;
+    border-bottom-right-radius: $radius-measure;
+    transition: width 0.3s ease-out;
+    z-index: 100;
 
-    .h2{
-      box-sizing: border-box;
-      padding: 10px;
-      font-family: 'Montserrat-Bold';
+    &--open {
+        width: 90%;
     }
 
-    .filter-button{
-      box-sizing: border-box;
-      margin-top: remCalc(5px);
-      padding: remCalc(5px);
-      border: 1px solid white;
-      margin-top: 20px;
-      width: 50%;
-      align-self: center;
-
-      &--selected {
-        background: $green;
-      }
-
-      &:hover {
-        background-color: $bluegreen;
-      }
+    &--closed {
+        width: 0;
     }
-  }
-	
-	&-button{
-		position: absolute;
-		top: 0;
-		right: -1*$filter-button-measure;
-		height: $filter-button-measure*2;
-		width: $filter-button-measure;
+
+    &-filter {
+        box-sizing: border-box;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        top: 0;
+        left: 0;
+        color: white;
+        overflow: hidden;
+
+        .h2 {
+            box-sizing: border-box;
+            padding: 10px;
+            font-family: 'Montserrat-Bold';
+        }
+
+        .filter-button {
+            box-sizing: border-box;
+            margin-top: remCalc(5px);
+            padding: remCalc(5px);
+            border: 1px solid white;
+            margin-top: 20px;
+            width: 50%;
+            align-self: center;
+
+            &--selected {
+                background: $green;
+            }
+
+            &:hover {
+                background-color: $bluegreen;
+			}
+        }
+    }
+
+    &-button {
+        position: absolute;
+        top: 0;
+        right: -1*$filter-button-measure;
+        height: $filter-button-measure;
+        width: $filter-button-measure;
 		background: inherit;
-		border-top-right-radius: $radius-measure;
-		border-bottom-right-radius: $radius-measure;
-		z-index: 1;
-	}
+		background-image: url(./svgs/filter.svg);
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+        border-top-right-radius: $radius-measure;
+        border-bottom-right-radius: $radius-measure;
+        z-index: 1;
+    }
 }
