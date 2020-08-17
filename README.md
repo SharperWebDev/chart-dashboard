@@ -23,6 +23,7 @@ Had I more time I'd have:
 * Removed the svgs as background images and created an SVG symbol library, which is more performant.
 * Add the expand/collapse functionality to the side filter.
 * Add a truncation filter to secondary filter items to match design.
+* Add in accessibility attributes
 
 
 
