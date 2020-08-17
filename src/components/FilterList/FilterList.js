@@ -17,7 +17,7 @@ class FilterList extends Component {
                 <div className="filter-list-item-primary">
                   <div className={`filter-list-item-primary-icon filter-list-item-primary-icon-${filterData[name].icon}`}></div>
                   <p>{name}</p>
-                  <div className="filter-list-item-primary-action-icon">V</div>
+                  <div className="filter-list-item-primary-action-icon"></div>
                 </div>
 
                 {filterData[name].sectors && 

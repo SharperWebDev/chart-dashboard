@@ -74,7 +74,12 @@
                     }
 
                     &-action-icon {
-                        margin-left: auto
+						margin-left: auto;
+						width: remCalc(10px);
+						background-image: url(./svgs/down.svg);
+						background-position: center;
+						background-size: contain;
+						background-repeat: no-repeat;
                     }
 				}
 				
@@ -231,7 +236,8 @@
             box-sizing: border-box;
             margin-top: remCalc(5px);
             padding: remCalc(5px);
-            border: 1px solid white;
+			border: 1px solid white;
+			border-radius: remCalc(4px);
             margin-top: 20px;
             width: 50%;
             align-self: center;
@@ -241,7 +247,7 @@
             }
 
             &:hover {
-                background-color: $bluegreen;
+				background-color: $bluegreen;
 			}
         }
     }
