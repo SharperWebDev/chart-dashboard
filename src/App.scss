@@ -228,19 +228,26 @@
 
         .h2 {
             box-sizing: border-box;
-            padding: 10px;
-            font-family: 'Montserrat-Bold';
+            padding: 10px 10px 0;
+			font-family: 'Montserrat-Medium';
+			font-size: remCalc(16px);
+			white-space: nowrap;
         }
 
         .filter-button {
-            box-sizing: border-box;
-            margin-top: remCalc(5px);
+			display: flex;
+			flex-flow: row nowrap;
+			box-sizing: border-box;
+			justify-content: flex-start;
+			align-items: center;
+			margin-top: remCalc(5px);
             padding: remCalc(5px);
-			border: 1px solid white;
-			border-radius: remCalc(4px);
+			border-radius: remCalc(3px);
             margin-top: 20px;
-            width: 50%;
-            align-self: center;
+            width: 80%;
+			align-self: center;
+			font-size: remCalc(14px);
+			transition:all 0.5s ease;
 
             &--selected {
                 background: $green;
@@ -249,7 +256,42 @@
             &:hover {
 				background-color: $bluegreen;
 			}
-        }
+		}
+
+		.female {
+			height: remCalc(20px);
+			width: remCalc(20px);
+			margin-right: remCalc(5px);
+			background-image: url('./svgs/female.svg');
+			background-repeat: no-repeat;
+			background-position: left;
+		}
+
+		.male {
+			height: remCalc(20px);
+			width: remCalc(20px);
+			margin-right: remCalc(5px);
+			background-image: url('./svgs/male.svg');
+			background-repeat: no-repeat;
+			background-position: left;
+		}
+
+		.reset {
+			@extend .filter-button;
+			margin-top: 0px;
+			border: 1px solid white;
+			justify-content: center;
+			align-self: center;
+			width: 50%;
+			font-family: 'Montserrat-Bold';
+		}
+		
+		.divider {
+			margin: remCalc(20px) auto;
+			width: 80%;
+			height: remCalc(1px);
+			background-color: $bluegreen;
+		}
     }
 
     &-button {

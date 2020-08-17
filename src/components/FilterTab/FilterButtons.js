@@ -6,10 +6,15 @@ class FilterButtons extends Component {
     render(){
         return (
             <div className="filter-tab-filter">
-                <h2 className="h2">Filter:</h2>
-                <button className="filter-button" onClick={this.props.loadAllSchoolData}>All</button>
-                <button className="filter-button" onClick={this.props.loadFemaleSchoolData}>Female</button> 
-                <button className="filter-button" onClick={this.props.loadMaleSchoolData}>Male</button>
+                <h2 className="h2">Filter School type by:</h2>
+                <button className="filter-button" onClick={this.props.loadFemaleSchoolData}>
+                    <div className="female"></div>Female
+                </button> 
+                <button className="filter-button" onClick={this.props.loadMaleSchoolData}>
+                    <div className="male"></div>Male
+                </button>
+                <div className="divider"></div>
+                <button className="reset" onClick={this.props.loadAllSchoolData}>Reset</button>
             </div>
         )
     }
