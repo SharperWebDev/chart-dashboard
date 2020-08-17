@@ -18,7 +18,7 @@ You will also see any lint errors in the console.
 
 ### To Do
 
-Had I had more time I'd have:
+Had I more time I'd have:
 * Broken up the sass files more to be tightly coupled  to the component.
 * Removed the svgs as background images and created an SVG symbol library, which is more performant.
 * Add the expand/collapse functionality to the side filter.
